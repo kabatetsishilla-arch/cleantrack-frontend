@@ -14,6 +14,8 @@ import AddLocation from "./pages/customer/AddLocation";
 import ReportFullBin from "./pages/customer/ReportFullBin";
 import MyPickupRequests from "./pages/customer/MyPickupRequests";
 import PickupDetails from "./pages/customer/PickupDetails";
+import MySchedules from "./pages/customer/MySchedules";
+import NewSchedule from "./pages/customer/NewSchedule";
 import DriverDashboard from "./pages/driver/DriverDashboard";
 import MyAssignedPickups from "./pages/driver/MyAssignedPickups";
 import PickupJobDetails from "./pages/driver/PickupJobDetails";
@@ -23,6 +25,7 @@ import CompanyProfile from "./pages/manager/CompanyProfile";
 import ManageTrucks from "./pages/manager/ManageTrucks";
 import AssignPickups from "./pages/manager/AssignPickups";
 import CompanyPickups from "./pages/manager/CompanyPickups";
+import DriverRatings from "./pages/manager/DriverRatings";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import ManageUsers from "./pages/admin/ManageUsers";
 import ManagePickups from "./pages/admin/ManagePickups";
@@ -50,6 +53,8 @@ const App = () => (
             <Route path="report-bin" element={<ReportFullBin />} />
             <Route path="pickups" element={<MyPickupRequests />} />
             <Route path="pickups/:id" element={<PickupDetails />} />
+            <Route path="schedules" element={<MySchedules />} />
+            <Route path="schedules/new" element={<NewSchedule />} />
           </Route>
         </Route>
 
@@ -69,6 +74,7 @@ const App = () => (
             <Route path="trucks" element={<ManageTrucks />} />
             <Route path="assign" element={<AssignPickups />} />
             <Route path="pickups" element={<CompanyPickups />} />
+            <Route path="driver-ratings" element={<DriverRatings />} />
           </Route>
         </Route>
 

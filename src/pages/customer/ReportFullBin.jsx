@@ -58,7 +58,11 @@ const ReportFullBin = () => {
           <label className="form-label">Location</label>
           <select className="form-select" name="location_id" value={form.location_id} onChange={handleChange} required>
             <option value="">Select location</option>
-            {locations.map((location) => <option key={location.id} value={location.id}>{location.location_name}</option>)}
+            {locations.map((location) => (
+              <option key={location.id} value={location.id}>
+                {location.is_favourite ? "★ " : ""}{location.location_name}
+              </option>
+            ))}
           </select>
         </div>
         <div className="col-md-6">

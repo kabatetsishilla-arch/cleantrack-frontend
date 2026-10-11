@@ -23,6 +23,16 @@ const MyLocations = () => {
     loadLocations();
   };
 
+  const toggleFavourite = async (id) => {
+    setMessage("");
+    try {
+      await locationService.toggleFavourite(id);
+      loadLocations();
+    } catch (error) {
+      setMessage(error.response?.data?.message || "Could not update favourite");
+    }
+  };
+
   return (
     <>
       <div className="d-flex justify-content-between align-items-center mb-3">
@@ -32,10 +42,26 @@ const MyLocations = () => {
       <AlertMessage type="success" message={message} />
       {loading ? <LoadingSpinner /> : (
         <div className="row g-3">
+          {locations.length === 0 && (
+            <div className="col-12">
+              <div className="content-card text-center text-muted">No locations yet. Add one to start requesting pickups.</div>
+            </div>
+          )}
           {locations.map((location) => (
             <div className="col-md-6 col-xl-4" key={location.id}>
               <div className="content-card h-100">
-                <h2 className="h5">{location.location_name}</h2>
+                <div className="d-flex justify-content-between align-items-start">
+                  <h2 className="h5">
+                    {location.is_favourite ? "★ " : ""}{location.location_name}
+                  </h2>
+                  <button
+                    className={`btn btn-sm ${location.is_favourite ? "btn-warning" : "btn-outline-secondary"}`}
+                    title={location.is_favourite ? "Remove favourite" : "Mark as favourite"}
+                    onClick={() => toggleFavourite(location.id)}
+                  >
+                    {location.is_favourite ? "★" : "☆"}
+                  </button>
+                </div>
                 <p className="text-muted mb-1">{location.location_type} · {location.district}</p>
                 <p>{location.address_details || "No extra address details."}</p>
                 <button className="btn btn-outline-danger btn-sm" onClick={() => removeLocation(location.id)}>Delete</button>
