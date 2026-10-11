@@ -5,5 +5,6 @@ export const locationService = {
   myLocations: () => api.get("/locations/my-locations"),
   getById: (id) => api.get(`/locations/${id}`),
   update: (id, data) => api.put(`/locations/${id}`, data),
-  remove: (id) => api.delete(`/locations/${id}`)
+  remove: (id) => api.delete(`/locations/${id}`),
+  toggleFavourite: (id) => api.put(`/locations/${id}/favourite`)
 };
