@@ -92,6 +92,8 @@ Customer pages:
 - `/customer/report-bin`
 - `/customer/pickups`
 - `/customer/pickups/:id`
+- `/customer/schedules` — recurring pickup schedules (pause/resume/delete)
+- `/customer/schedules/new` — create a schedule; next 4 pickups are generated
 
 Driver pages:
 
@@ -107,6 +109,7 @@ Manager pages:
 - `/manager/trucks`
 - `/manager/assign`
 - `/manager/pickups`
+- `/manager/driver-ratings` — average driver rating and recent feedback
 
 Admin pages:
 
